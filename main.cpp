@@ -1,5 +1,14 @@
-#include <__config>
-#include <_ctype.h>
+#include "llvm/ADT/APFloat.h"
+#include "llvm/ADT/STLExtras.h"
+#include "llvm/IR/BasicBlock.h"
+#include "llvm/IR/Constants.h"
+#include "llvm/IR/DerivedTypes.h"
+#include "llvm/IR/Function.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/Module.h"
+#include "llvm/IR/Type.h"
+#include "llvm/IR/Verifier.h"
 #include <algorithm>
 #include <cctype>
 #include <cstdio>
@@ -7,9 +16,13 @@
 #include <map>
 #include <memory>
 #include <string>
-#include <utility>
 #include <vector>
-// The lexer returns tokens [0-255] if it is an unknown character, otherwise one
+
+using namespace llvm;
+
+/*using namespace llvm;*/
+// The lexer returns tokens [0-255] if it is an unknown
+// character, otherwise one
 // of these for known things.
 enum Token {
   tok_eof = -1,
@@ -115,6 +128,7 @@ static int getTok() {
 class ExprAST {
 public:
   virtual ~ExprAST() = default;
+  virtual Value *codegen() = 0;
 };
 
 /// NumberExprAST: Expression class for numeric literals
@@ -123,6 +137,7 @@ class NumberExprAST : public ExprAST {
 
 public:
   NumberExprAST(double Val) : Val(Val) {}
+  Value *codegen() override;
 };
 /// VariableExprAST: Expression class referencing a variable, like "a".
 class VariableExprAST : public ExprAST {

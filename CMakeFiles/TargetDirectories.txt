@@ -1,9 +1,0 @@
-/Users/moshoodbello/coding/isere/CMakeFiles/intrinsics_gen.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/omp_gen.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/acc_gen.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/ARMTargetParserTableGen.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/AArch64TargetParserTableGen.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/RISCVTargetParserTableGen.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/isere.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/edit_cache.dir
-/Users/moshoodbello/coding/isere/CMakeFiles/rebuild_cache.dir

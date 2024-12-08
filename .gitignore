@@ -1,9 +1,10 @@
-.cache/clangd/index/*
-CMakeFiles/*
-build/*
-.clangd
-CMakeCache.txt
-CMakeLists.txt
-cmake_install.cmake
-compile_commands.json
+# Ignore everything by default
+*
+
+# Allow main.cpp and Makefile
+!main.cpp
+!Makefile
+
+# Ignore the .gitignore file itself if needed
+!.gitignore
 
